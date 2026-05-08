@@ -25,12 +25,12 @@ def number_guess():
     user_guess = int(user_input.get("userGuess"))
 
     if user_guess == random_num:
-        return jsonify({"message":"The number was guessed"})
+        return jsonify({"message":"The number was guessed."})
     else:
         if user_guess > random_num:
-            return jsonify({"message":"The number is smaller"})
+            return jsonify({"message":"The number is smaller."})
         else:
-            return jsonify({"message":"The number is larger"})
+            return jsonify({"message":"The number is larger."})
 
 @app.route("/")
 def homepage():

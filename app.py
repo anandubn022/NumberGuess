@@ -3,22 +3,34 @@ import random
 
 app = Flask(__name__)
 
-random_num = random.getrandbits(16) # random 16 bit number
+limit = 65536
+random_num = random.randint(0, limit)
+
+@app.route('/limit', methods = ["POST"])
+def set_limit_gen_random():
+    user_input = request.get_json()
+    global limit, random_num
+    limit_check = user_input.get("upperLimit")
+    if limit_check:
+        limit = int(user_input.get("upperLimit"))
+    else:
+        limit = 65536
+    random_num = random.randint(0, limit)
+    return jsonify({"ul": f"Current randomiser limit is {limit}."})
 
 @app.route("/guess", methods = ["POST"])
 def number_guess():
     global random_num
     user_input = request.get_json()
     user_guess = int(user_input.get("userGuess"))
-    upper_limit = int(user_input.get("upperLimit"))
 
     if user_guess == random_num:
-        return jsonify({"message":"The number was guessed", "ul": upper_limit})
+        return jsonify({"message":"The number was guessed"})
     else:
         if user_guess > random_num:
-            return jsonify({"message":"The number is smaller", "ul": upper_limit})
+            return jsonify({"message":"The number is smaller"})
         else:
-            return jsonify({"message":"The number is larger", "ul": upper_limit})
+            return jsonify({"message":"The number is larger"})
 
 @app.route("/")
 def homepage():

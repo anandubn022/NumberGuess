@@ -10,14 +10,15 @@ def number_guess():
     global random_num
     user_input = request.get_json()
     user_guess = int(user_input.get("userGuess"))
+    upper_limit = int(user_input.get("upperLimit"))
 
     if user_guess == random_num:
-        return jsonify({"message":"The number was guessed"})
+        return jsonify({"message":"The number was guessed", "ul": upper_limit})
     else:
         if user_guess > random_num:
-            return jsonify({"message":"The number is smaller"})
+            return jsonify({"message":"The number is smaller", "ul": upper_limit})
         else:
-            return jsonify({"message":"The number is larger"})
+            return jsonify({"message":"The number is larger", "ul": upper_limit})
 
 @app.route("/")
 def homepage():

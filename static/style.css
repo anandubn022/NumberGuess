@@ -1,1 +1,46 @@
 /*make ui look like mix of google sign up and coalowl*/ 
+:root{
+    --bgcolor: rgb(5, 5, 5);
+    --textprimarycolor: #FFFFFF;
+    --textsecondrycolor: rgb(62, 62, 62);
+    --primarycolor: rgb(70, 44, 125);
+    --secondrycolor: rgb(131, 28, 145);
+    --fontprimary: "Roboto";
+}
+
+*{
+    font-family: var(--fontprimary);
+    margin: 0%;
+    padding: 0%;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--bgcolor);
+    color: var(--textprimarycolor);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav{
+    position: fixed;
+    width: calc(100%-2 rem);
+}
+
+nav div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 10%;
+}

@@ -2,76 +2,48 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number Guessing Game</title>
     <script src="/static/script.js" defer></script>
     <link rel = "stylesheet" href="/static/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu+Condensed&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu+Condensed&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <nav>
         <div>
             <p><a>Guessit</a></p>
-            <ul>
-                <li><a>Features</a></li>
-                <li><a>About</a></li>
-            </ul>
+            
         </div>
     </nav>
 
-    <main>
-        <section>
-            <div>
-
-                <div>
-                    <div>
-                        <input type = "number" id = "upperlimit" placeholder = "Enter the upper limit for randomiser">
-                        <button id = "limitsubmitbutton" onclick = "limitSend()">Randomise</button>
-                    </div>
-                    <div>
-                        <p id = "usergiveninputcheck">Current randomiser limit is 65536.</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div>
-                        <input type = "number" id = "userGuess" placeholder = "Enter your guess">
-                        <button id = "submitButton" onclick = "guessSend()">Submit</button>
-                    </div>
-                    <div>
-                        <p id = "systemOutput">Guess the number!</p>
-                    </div>
-                </div>
-
+    <main class="container">
+        <section class="game-card glass">
+            <!-- Randomiser Section -->
+            <div class="input-group">
+                <input type="number" id="upperlimit" placeholder="Enter upper limit">
+                <button id="limitsubmitbutton" class="btn btn-primary" onclick="limitSend()">Randomise</button>
+                <p id="usergiveninputcheck">Current randomiser limit is 65536.</p>
             </div>
-        </section>
-        
-        <section>
-            <div>
 
-                <!--
-                Add features
-                1. custom limits
-                2. randomising
-                3. guides to help guesser
-                -->
+            <hr style="border: 0; border-top: 1px solid var(--glass-border);">
 
+            <!-- Guess Section -->
+            <div class="input-group">
+                <input type="number" id="userGuess" placeholder="Enter your guess">
+                <button id="submitButton" class="btn btn-primary" onclick="guessSend()">Submit Guess</button>
+                <p id="systemOutput">Guess the number!</p>
             </div>
         </section>
     </main>
 
     <footer>
-        <div>
-
-            <!--
-            Contact section
-            1. website name
-            2. what it does
-            -->
-
+        <div class="container">
+            <p>Guessit</p>
+            <p>A simple game where you guess the randomly generated number.</p>
         </div>
     </footer>
 
